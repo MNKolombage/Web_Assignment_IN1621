@@ -28,6 +28,7 @@
         .row {
             display: flex;
             flex-wrap: wrap;
+            
         }
 
         ul {
@@ -57,7 +58,7 @@
         }
 
         #logo_div {
-            display: flex;
+            
             align-items: center;
             gap: 70px;
         }
@@ -98,6 +99,8 @@
             padding-bottom: 15px;
             color: gray;
             transition: color 0.5s ease;
+            white-space: nowrap;
+            padding: 10px;
         }
 
         .sidenav {
@@ -136,6 +139,8 @@
             flex-grow: 1;
             display: flex;
             align-items: center;
+            width: 500px;
+            padding: 100px;
         }
 
         .container {
@@ -154,16 +159,16 @@
 
         .centered {
             position: absolute;
-            top: 50%;
+            top: 20%;
             left: 50%;
             transform: translate(-50%, -50%);
             font-size: large;
-            font-family: Arial, Helvetica, sans-serif;
+            font-family:Arial, Helvetica, sans-serif;
         }
 
         .sorting {
-            float: right;
-            padding-right: 60px;
+            float: left;
+            padding-left: 60px;
         }
 
         #line.gray {
@@ -197,6 +202,9 @@
             text-align: left;
             transition: transform 0.5s ease, box-shadow 0.5s ease, border 2s ease;
             margin: 10px;
+            padding: 10px;
+            width: 80%;
+            box-sizing: border-box;
         }
 
         .image-and-description:hover {
@@ -208,6 +216,9 @@
 
         .image-and-description img {
             border-radius: 10px;
+            height: 100%;
+            width: 100%;
+    max-width: 100%;
         }
 
         .image-and-description button {
@@ -220,6 +231,8 @@
         .item_name {
             text-decoration: none;
             text-align: left;
+            margin: 20px;
+            padding: 0 15px;
         }
 
         .footer {
@@ -303,6 +316,14 @@
                 width: 100%;
             }
         }
+
+        .row1 {
+            width: 100%;
+        }
+
+        
+
+        
     </style>
 </head>
 
@@ -324,71 +345,70 @@
             <div id="logo_div">
                 <img src="https://raw.githubusercontent.com/dulshanMMS/Web_Assignment/main/images/logo.png" alt="logo">
 
-                <div class="dropdown" id="folk_handicrafts">FOLK HANDICRAFTS ⮟
+                <div class="dropdown" id="folk_handicrafts">FABRIC JEWELLERY ⮟
                     <ul class="dropdown_content" id="folk_handicrafts_content">
-                        <li>Dulshan</li>
-                        <li>Chalindu</li>
-                        <li>Bumuthu</li>
-                        <li>Sithumini</li>
-                        <li>Maleesha</li>
+                        <li>Necklaces</li>
+                        <li>Earrings</li>
+                        <li>Anklets</li>
+                        <li>Hair Bands</li>
+                        
                     </ul>
                 </div>
-                <div class="dropdown">CHOCOLATE DESSERTS ⮟
+                <div class="dropdown">SEA SHELL JEWELLERY ⮟
                     <ul class="dropdown_content" id="folk_handicrafts_content">
-                        <li>Dulshan</li>
-                        <li>Chalindu</li>
-                        <li>Bumuthu</li>
-                        <li>Sithumini</li>
-                        <li>Maleesha</li>
+                        <li>Necklaces</li>
+                        <li>Earrings</li>
+                        <li>Anklets</li>
+                        
                     </ul>
                 </div>
                 <div class="dropdown">FASHION ⮟
                     <ul class="dropdown_content" id="folk_handicrafts_content">
-                        <li>Dulshan</li>
-                        <li>Chalindu</li>
-                        <li>Bumuthu</li>
-                        <li>Sithumini</li>
-                        <li>Maleesha</li>
+                        <li>Ladies</li>
+                        <li>Gents</li>
+                        <li>Kids</li>
+                        <li>Pets</li>
+                        
                     </ul>
                 </div>
                 <div class="dropdown">OFFERS ⮟
                     <ul class="dropdown_content" id="folk_handicrafts_content">
-                        <li>Dulshan</li>
-                        <li>Chalindu</li>
-                        <li>Bumuthu</li>
-                        <li>Sithumini</li>
-                        <li>Maleesha</li>
+                        <li>Sales</li>
+                        <li>Promo</li>
+                        <li>Buy 1 Get 2</li>
+                        
                     </ul>
                 </div>
                 <div class="dropdown">OUR BLOG</div>
                 <div class="dropdown" style="margin-left: auto;" onclick="loadModalContent('id01', 'login.html')" style="width:auto;"><a href="login.html">LOGIN|REGISTER</a></div>
-                <div id="modalContainer"></div>
+<div id="modalContainer"></div>
 
-    <script>
-        var previousPage = window.location.href;
+<script>
+var previousPage = window.location.href;
 
-        function loadModalContent(modalId, pageUrl) {
-            var modalContainer = document.getElementById('modalContainer');
-            var xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function() {
-                if (this.readyState == 4 && this.status == 200) {
-                    modalContainer.innerHTML = this.responseText;
-                    document.getElementById(modalId).style.display = 'block';
-                }
-            };
-            xhttp.open("GET", pageUrl, true);
-            xhttp.send();
-        }
+function loadModalContent(modalId, pageUrl) {
+var modalContainer = document.getElementById('modalContainer');
+var xhttp = new XMLHttpRequest();
+xhttp.onreadystatechange = function() {
+if (this.readyState == 4 && this.status == 200) {
+    modalContainer.innerHTML = this.responseText;
+    document.getElementById(modalId).style.display = 'block';
+}
+};
+xhttp.open("GET", pageUrl, true);
+xhttp.send();
+}
 
-        var modal = document.getElementById('id01');
-        
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-                window.location.href = previousPage;
-            }
-        }
-    </script>
+var modal = document.getElementById('id01');
+
+window.onclick = function(event) {
+if (event.target == modal) {
+modal.style.display = "none";
+window.location.href = previousPage;
+}
+}
+</script>
+            </div>
         </div>
 
         <div class="container mt-4">
@@ -398,71 +418,69 @@
             </div>
         </div>
 
-        <div class="sorting my-3 d-flex justify-content-end">
-            <select name="sort-by" id="sort-by" class="form-control w-auto">
-                <option value="popularity">Sort by popularity</option>
-                <option value="rating">Sort by average rating</option>
-                <option value="latest">Sort by latest</option>
-                <option value="price-low-to-high">Sort by price: low to high</option>
-                <option value="price-high-to-low">Sort by price: high to low</option>
-            </select>
+        <div style="border-bottom: 1px solid; padding: 9px;">
+
         </div>
 
-        <div class="mb-4">
-            <p class="text-muted">SHOP / FABRIC JEWELLERY</p>
+        
+
+        <div class="mb-4" >
+            
         </div>
 
-        <div class="row mb-4">
-            <div class="col-lg-3 sidenav">
-                <h3 class="px-3">CATEGORY</h3>
-                <hr>
-                <a href="#">Fabric Jewellery</a>
-                <ul><a href="#">Necklaces</a></ul>
-                <ul><a href="#">Earrings</a></ul>
-                <ul><a href="#">Anklets</a></ul>
-                <ul><a href="#">Hair Bands</a></ul>
+        
 
-                <a href="#">Sea Shell Jewellery</a>
-                <ul><a href="#">Necklaces</a></ul>
-                <ul><a href="#">Earrings</a></ul>
-                <ul><a href="#">Anklets</a></ul>
-            </div>
-
-            <div class="col-lg-9">
-                <div class="row">
-                    <a href="#" class="item_name col-md-4">
+        <div class="col-lg-11" style="padding-top: 30px;">
+            <div class="row">
+                <div class="col-md-4">
+                    <a href="#" class="item_name">
                         <div class="image-container">
                             <div class="image-and-description">
-                                <img src="https://github.com/dulshanMMS/Web_Assignment/blob/main/images/artem-beliaikin-yx4YPa9zWZo-unsplash.jpg?raw=true" alt="" height="200px">
-                                <h2>Necklace</h2>
-                                <p>meka malayak..lassanai</p>
-                                <button class="btn btn-primary">Add to Cart</button>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="#" class="item_name col-md-4">
-                        <div class="image-container">
-                            <div class="image-and-description">
-                                <img src="https://github.com/dulshanMMS/Web_Assignment/blob/main/images/artem-beliaikin-yx4YPa9zWZo-unsplash.jpg?raw=true" alt="" height="200px">
-                                <h2>Necklace</h2>
-                                <p>meka malayak..lassanai</p>
-                                <button class="btn btn-primary">Add to Cart</button>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="#" class="item_name col-md-4">
-                        <div class="image-container">
-                            <div class="image-and-description">
-                                <img src="https://github.com/dulshanMMS/Web_Assignment/blob/main/images/artem-beliaikin-yx4YPa9zWZo-unsplash.jpg?raw=true" alt="" height="200px">
-                                <h2>Necklace</h2>
-                                <p>meka malayak..lassanai</p>
+                                <img src="https://raw.githubusercontent.com/dulshanMMS/Web_Assignment/main/images/sjpic2.avif" alt="">
+                                <h2>Resin Necklaces</h2>
+                                <p>Explore the beauty of resin jewelry and add a touch of artistry to your ensemble.</p>
                                 <button class="btn btn-primary">Add to Cart</button>
                             </div>
                         </div>
                     </a>
                 </div>
+                <div class="col-md-4" style="float: left;">
+                    <a href="#" class="item_name">
+                        <div class="image-container">
+                            <div class="image-and-description">
+                                <img src="https://raw.githubusercontent.com/dulshanMMS/Web_Assignment/main/images/sjpic3.avif" alt="">
+                                <h2>Pearl Bracelet</h2>
+                                <p>Elevate your look with the lustrous charm of pearl jewelry </p>
+                                <button class="btn btn-primary">Add to Cart</button>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-4">
+                    <a href="#" class="item_name">
+                        <div class="image-container">
+                            <div class="image-and-description">
+                                <img src="https://raw.githubusercontent.com/dulshanMMS/Web_Assignment/main/images/sjpic10.avif" alt="">
+                                <h2>Custom Pendant</h2>
+                                <p>Create resin pendants and add a touch of artistry to your wardrobe.</p>
+                                <button class="btn btn-primary">Add to Cart</button>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
             </div>
         </div>
+    </div>
+
+    <div class="sorting my-3 d-flex justify-content-end">
+        <select name="sort-by" id="sort-by" class="form-control w-auto">
+            <option value="popularity">Sort by popularity</option>
+            <option value="rating">Sort by average rating</option>
+            <option value="latest">Sort by latest</option>
+            <option value="price-low-to-high">Sort by price: low to high</option>
+            <option value="price-high-to-low">Sort by price: high to low</option>
+        </select>
     </div>
 
     <footer class="footer mt-5">
