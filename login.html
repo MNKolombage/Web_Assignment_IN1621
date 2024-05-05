@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="login.css">
+
+<style>
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.container {
+    float: left;
+    width: 50%;
+    padding: 10px;
+    height: 300px; 
+}
+
+
+input[type="submit"]{
+    background-color: rgb(241, 66, 124);
+    border: none;
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    color: white;
+    font-size: large;
+}
+
+input[type="text"]{
+    padding: 15px;
+    width: 80%;
+}
+
+input[type="submit"]:hover {
+    cursor: pointer;
+}
+
+button {
+  background-color: #04AA6D;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+.modal {
+  display: none; 
+  position: fixed; 
+  z-index: 1; 
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.4); 
+  padding-top: 60px;
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 5% auto 15% auto; 
+  /*border: 1px solid #888;*/
+  width: 70%; 
+  border-radius: 20px;
+  padding: 40px;
+  height: 100%;
+}
+
+.close {
+  position: absolute;
+  right: 25px;
+  top: 0;
+  color: #000;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.close_container {
+    margin: 24px 0 12px 0;
+    position: relative;
+  }
+
+.close:hover,
+.close:focus {
+  color: red;
+  cursor: pointer;
+}
+
+.animate {
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+  from {-webkit-transform: scale(0)} 
+  to {-webkit-transform: scale(1)}
+}
+  
+@keyframes animatezoom {
+  from {transform: scale(0)} 
+  to {transform: scale(1)}
+}
+
+@media screen and (max-width: 300px) {
+  .column {
+    width: 100%;
+  }
+}
+</style>
+</head>
+<body>
+
+<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
+
+<div id="id01" class="modal">
+  
+  <form class="modal-content animate" action="/action_page.php" method="post">
+    <div class="close_container">
+      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+    </div>
+
+    <div class="container">
+        <h2>LOGIN</h2>
+        <label for="userName">Username or email address*</label><br>
+        <input type="text" id="name" name="name" value=""><br><br>
+        <label for="pwd">Password*</label><br>
+        <input type="text" id="pwd" name="pwd" value=""><br><br>
+        <input type="checkbox" id="remember" name="remember">
+        <label for="remember">Remember me</label><br><br>
+        <input type="submit" value="LOG IN"><br>
+        <p><a href="">Lost your password?</a></p>
+    </div>
+    <div class="container">
+        <h2>REGISTER</h2>
+              <label for="userName">Username*</label><br>
+              <input type="text" id="fname" name="fname" value=""><br><br>
+              <label for="email">Email address*</label><br>
+              <input type="text" id="email" name="email" value=""><br><br>
+              <label for="pwd">Password*</label><br>
+              <input type="text" id="pwd" name="pwd" value=""><br><br>
+              <input type="checkbox" id="remember" name="remember">
+              <label for="remember">Let us notify you about Offers & Sale</label><br>
+              <p>Your personal data will be used to support your experience throughout this 
+                  website, to manage access to your account.</p><br>
+              <input type="submit" value="REGISTER"><br>
+      </div>
+
+  </form>
+</div>
+
+<script>
+var modal = document.getElementById('id01');
+
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
+
+</body>
+</html>
