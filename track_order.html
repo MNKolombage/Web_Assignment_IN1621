@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Hand Made Jewellery - Track Your Order</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        body {
+            background-color: rgb(228, 230, 233);
+        }
+
+        #logo_bar {
+            background-color: white;
+            height: 100px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #logo_bar img {
+            height: 80px;
+        }
+
+        #tracking {
+            border-radius: 25px;
+            background: white;
+            padding: 20px;
+            margin: 100px auto;
+            width: 70%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 20px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px 20px;
+            border: 1px solid #b5b3b3;
+            border-radius: 4px;
+            height: 40px;
+            font-size: large;
+        }
+
+        button {
+            background-color: #444fe9;
+            color: #fff;
+            padding: 15px 50px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: large;
+        }
+
+        footer {
+            background-color: white;
+            text-align: left;
+            padding-left: 10%;
+            font-size: large;
+            color: #787575;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="logo_bar">
+        <img src="https://raw.githubusercontent.com/dulshanMMS/Web_Assignment/main/images/logo.png" alt="logo">
+    </div>
+
+    <div id="tracking" class="container">
+        <div id="trackbox_upper">
+            <h3 class="d-inline-block"><i class="material-icons">&#xe8e1;</i> &nbsp;Track status of your shipment</h3>
+            <hr>
+            <br>
+            <div id="selection" class="form-check form-check-inline">
+                <label><b>Search By:</b></label> &nbsp;
+                <input type="radio" id="orderID" name="order_id" class="form-check-input">
+                <label for="orderID" class="form-check-label">Order ID</label> &nbsp; &nbsp; &nbsp; &nbsp;
+                <input type="radio" id="awd" name="order_id" class="form-check-input">
+                <label for="awd" class="form-check-label">Order ID</label>
+            </div>
+            <br><br>
+            <input type="text" name="order-id" id="order-id" class="form-control" placeholder="Enter Order ID to search">
+            <br><br>
+            <button type="submit"><b>Submit</b></button>
+            <br>
+        </div>
+    </div>
+
+    <footer class="py-3">
+        <p>Email us at: homemadejewellery@gmail.com | Call us at: 0912241476</p>
+    </footer>
+
+</body>
+
+</html>
+ 
