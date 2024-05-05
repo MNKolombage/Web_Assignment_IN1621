@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Hand Made Jewellery</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        body {
+            margin: 0;
+            background-color: #E9E7E6;
+            line-height: 1.5;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            max-width: 1170px;
+            margin: auto;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        ul {
+            list-style-type: disc;
+        }
+
+        header {
+            background-color: black;
+            color: white;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        #header_free_shipping {
+            font-family: sans-serif;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        #header_font {
+            text-decoration: none;
+            color: #D6D6D6;
+            font-family: sans-serif;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        #logo_div {
+            display: flex;
+            align-items: center;
+            gap: 70px;
+        }
+
+        #logo_div img {
+            height: 150px;
+        }
+
+        .dropdown_content {
+            max-height: 0;
+            opacity: 0;
+            position: absolute;
+            background-color: #f9f9f9;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            min-width: 160px;
+            z-index: 2;
+            overflow: hidden;
+            transition: max-height 0.5s, opacity 0.5s linear;
+        }
+
+        .dropdown:hover {
+            color: rgb(0, 0, 0);
+        }
+
+        .dropdown:hover .dropdown_content {
+            max-height: 200px;
+            opacity: 1;
+        }
+
+        .dropdown_content li {
+            padding: 10px;
+            border-bottom: 1px solid gray;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+            color: gray;
+            transition: color 0.5s ease;
+        }
+
+        .sidenav {
+            background: #E9E7E6;
+            padding: 8px;
+            padding-right: 100px;
+        }
+
+        .sidenav a {
+            width: 200px;
+            padding: 6px 8px 6px 16px;
+            text-decoration: none;
+            font-size: 20px;
+            color: #6e7071;
+            display: block;
+        }
+
+        .sidenav a:hover {
+            color: #262727;
+        }
+
+        .upper_nav {
+            border-bottom: 1px solid black;
+        }
+
+        #main_div {
+            padding-left: 60px;
+            padding-right: 60px;
+        }
+
+        #content {
+            display: flex;
+        }
+
+        .image-container {
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+        }
+
+        .container {
+            position: relative;
+            text-align: center;
+            width: 100%;
+        }
+
+        .container img {
+            height: 360px;
+        }
+
+        .container h1 {
+            color: white;
+        }
+
+        .centered {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: large;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .sorting {
+            float: right;
+            padding-right: 60px;
+        }
+
+        #line.gray {
+            color: #888;
+        }
+
+        select#sort-by {
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 5px 10px;
+            font-size: 16px;
+            cursor: pointer;
+            color: #333;
+        }
+
+        select#sort-by option {
+            padding: 5px 10px;
+            background-color: #fff;
+            color: #333;
+        }
+
+        select#sort-by:hover {
+            border-color: #888;
+        }
+
+        .image-and-description {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: left;
+            transition: transform 0.5s ease, box-shadow 0.5s ease, border 2s ease;
+            margin: 10px;
+        }
+
+        .image-and-description:hover {
+            transform: translateY(-10px);
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+            border: 1px solid black;
+            border-radius: 10px;
+        }
+
+        .image-and-description img {
+            border-radius: 10px;
+        }
+
+        .image-and-description button {
+            padding: 10px 20px;
+            margin-top: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .item_name {
+            text-decoration: none;
+            text-align: left;
+        }
+
+        .footer {
+            background-color: #24262b;
+            padding: 70px 0;
+            max-height: 2000px;
+        }
+
+        .footer-col {
+            width: 25%;
+            padding: 0 30px;
+        }
+
+        .footer-col h4 {
+            font-size: 18px;
+            color: #ffffff;
+            text-transform: capitalize;
+            margin-bottom: 30px;
+            font-weight: 500;
+            position: relative;
+            text-align: left;
+        }
+
+        .footer-col h4::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            background-color: #e91e63;
+            height: 2px;
+            box-sizing: border-box;
+            width: 50px;
+        }
+
+        .footer-col ul li:not(:last-child) {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            font-size: 16px;
+            text-transform: capitalize;
+            color: #bbbbbb;
+            text-decoration: none;
+            font-weight: 300;
+            display: block;
+            transition: all 0.3s ease;
+            text-align: left;
+        }
+
+        .footer-col ul li a:hover {
+            color: #ffffff;
+            padding-left: 8px;
+        }
+
+        .social-link a {
+            display: inline-block;
+            height: 40px;
+            width: 40px;
+            background-color: rgba(255, 255, 255, 0.2);
+            margin: 0 10px 10px 0;
+            line-height: 40px;
+            border-radius: 50%;
+            color: #ffffff;
+            transition: all 0.5s ease;
+        }
+
+        .social-link a:hover {
+            color: #24262b;
+            background-color: #ffffff;
+        }
+
+        @media (max-width: 767px) {
+            .footer-col {
+                width: 50%;
+                margin-bottom: 30px;
+            }
+        }
+
+        @media (max-width: 574px) {
+            .footer-col {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <header class="d-flex justify-content-between py-2 border-bottom">
+            <div>
+                <a href="" id="header_font">Track Order |</a>
+                <a href="" id="header_font">My Account</a>
+            </div>
+            <div id="header_free_shipping">
+                Free Shipping Above Rs. 599.00
+            </div>
+            <a href="" id="header_font">Newsletter</a>
+        </header>
+
+        <div id="main_div" class="upper_nav">
+            <div id="logo_div">
+                <img src="https://raw.githubusercontent.com/dulshanMMS/Web_Assignment/main/images/logo.png" alt="logo">
+
+                <div class="dropdown" id="folk_handicrafts">FOLK HANDICRAFTS ⮟
+                    <ul class="dropdown_content" id="folk_handicrafts_content">
+                        <li>Dulshan</li>
+                        <li>Chalindu</li>
+                        <li>Bumuthu</li>
+                        <li>Sithumini</li>
+                        <li>Maleesha</li>
+                    </ul>
+                </div>
+                <div class="dropdown">CHOCOLATE DESSERTS ⮟
+                    <ul class="dropdown_content" id="folk_handicrafts_content">
+                        <li>Dulshan</li>
+                        <li>Chalindu</li>
+                        <li>Bumuthu</li>
+                        <li>Sithumini</li>
+                        <li>Maleesha</li>
+                    </ul>
+                </div>
+                <div class="dropdown">FASHION ⮟
+                    <ul class="dropdown_content" id="folk_handicrafts_content">
+                        <li>Dulshan</li>
+                        <li>Chalindu</li>
+                        <li>Bumuthu</li>
+                        <li>Sithumini</li>
+                        <li>Maleesha</li>
+                    </ul>
+                </div>
+                <div class="dropdown">OFFERS ⮟
+                    <ul class="dropdown_content" id="folk_handicrafts_content">
+                        <li>Dulshan</li>
+                        <li>Chalindu</li>
+                        <li>Bumuthu</li>
+                        <li>Sithumini</li>
+                        <li>Maleesha</li>
+                    </ul>
+                </div>
+                <div class="dropdown">OUR BLOG</div>
+                <div class="ml-auto dropdown">LOGIN | REGISTER</div>
+            </div>
+        </div>
+
+        <div class="container mt-4">
+            <img src="https://github.com/dulshanMMS/Web_Assignment/blob/main/images/305403717_487488276721209_6322540825461044894_n.jpg?raw=true" alt="jewe" class="img-fluid">
+            <div class="centered">
+                <h1>HANDMADE JEWELLERY</h1>
+            </div>
+        </div>
+
+        <div class="sorting my-3 d-flex justify-content-end">
+            <select name="sort-by" id="sort-by" class="form-control w-auto">
+                <option value="popularity">Sort by popularity</option>
+                <option value="rating">Sort by average rating</option>
+                <option value="latest">Sort by latest</option>
+                <option value="price-low-to-high">Sort by price: low to high</option>
+                <option value="price-high-to-low">Sort by price: high to low</option>
+            </select>
+        </div>
+
+        <div class="mb-4">
+            <p class="text-muted">SHOP / FABRIC JEWELLERY</p>
+        </div>
+
+        <div class="row mb-4">
+            <div class="col-lg-3 sidenav">
+                <h3 class="px-3">CATEGORY</h3>
+                <hr>
+                <a href="#">Fabric Jewellery</a>
+                <ul><a href="#">Necklaces</a></ul>
+                <ul><a href="#">Earrings</a></ul>
+                <ul><a href="#">Anklets</a></ul>
+                <ul><a href="#">Hair Bands</a></ul>
+
+                <a href="#">Sea Shell Jewellery</a>
+                <ul><a href="#">Necklaces</a></ul>
+                <ul><a href="#">Earrings</a></ul>
+                <ul><a href="#">Anklets</a></ul>
+            </div>
+
+            <div class="col-lg-9">
+                <div class="row">
+                    <a href="#" class="item_name col-md-4">
+                        <div class="image-container">
+                            <div class="image-and-description">
+                                <img src="https://github.com/dulshanMMS/Web_Assignment/blob/main/images/artem-beliaikin-yx4YPa9zWZo-unsplash.jpg?raw=true" alt="" height="200px">
+                                <h2>Necklace</h2>
+                                <p>meka malayak..lassanai</p>
+                                <button class="btn btn-primary">Add to Cart</button>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="#" class="item_name col-md-4">
+                        <div class="image-container">
+                            <div class="image-and-description">
+                                <img src="https://github.com/dulshanMMS/Web_Assignment/blob/main/images/artem-beliaikin-yx4YPa9zWZo-unsplash.jpg?raw=true" alt="" height="200px">
+                                <h2>Necklace</h2>
+                                <p>meka malayak..lassanai</p>
+                                <button class="btn btn-primary">Add to Cart</button>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="#" class="item_name col-md-4">
+                        <div class="image-container">
+                            <div class="image-and-description">
+                                <img src="https://github.com/dulshanMMS/Web_Assignment/blob/main/images/artem-beliaikin-yx4YPa9zWZo-unsplash.jpg?raw=true" alt="" height="200px">
+                                <h2>Necklace</h2>
+                                <p>meka malayak..lassanai</p>
+                                <button class="btn btn-primary">Add to Cart</button>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer mt-5">
+        <div class="container">
+            <h6 style="font-size: 15px;font-style: italic;">This is a paragraph with a font size of 16 pixels.</h6>
+            <div class="row">
+                <div class="col-md-3 footer-col">
+                    <h4>LOCATE US</h4>
+                    <ul>
+                        <li><a href="#">Address: E3/398, One Galle Face Mall, Sri Lanka.</a></li>
+                        <li><a href="#">Email: hello@urbaneyogi.com</a></li>
+                        <li><a href="#">Contact Number: +91-9123053792</a></li>
+                        <li><a href="#">WhatsApp: 6201808295</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 footer-col">
+                    <h4>ABOUT</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Delivery Information</a></li>
+                        <li><a href="#">Order & Return</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 footer-col">
+                    <h4>NEED HELP</h4>
+                    <ul>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Track Your Order</a></li>
+                        <li><a href="#">My Wallet</a></li>
+                        <li><a href="#">Our Blog</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 footer-col">
+                    <h4>Follow Us</h4>
+                    <div class="social-link">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
